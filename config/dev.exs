@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :crm, Crm.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "adrianlim",
+  password: "",
   hostname: "localhost",
   database: "crm_dev",
   stacktrace: true,
