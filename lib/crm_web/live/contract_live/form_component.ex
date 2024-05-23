@@ -20,14 +20,22 @@ defmodule CrmWeb.ContractLive.FormComponent do
         phx-submit="save"
       >
         <.input field={@form[:company_id]} type="text" label="Company" />
-        <.input field={@form[:do]} type="text" label="Do" />
-        <.input field={@form[:po]} type="text" label="Po" />
-        <.input field={@form[:itq]} type="text" label="Itq" />
+        <.input field={@form[:do]} type="text" label="Delivery Order" />
+        <.input field={@form[:po]} type="text" label="Purchase Order Number" />
+        <.input field={@form[:itq]} type="text" label="ITQ Number" />
         <.input field={@form[:startdate]} type="date" label="Startdate" />
         <.input field={@form[:enddate]} type="date" label="Enddate" />
-        <.input field={@form[:type]} type="text" label="Type" />
-        <.input field={@form[:svcalloperdevice]} type="number" label="Svcalloperdevice" />
-        <.input field={@form[:timeallo]} type="number" label="Timeallo" />
+        <.input field={@form[:type]} type="select" label="Contract Type"
+          options=
+              {
+                [ {"Preventive Maintenance", "PM"},
+                  {"Emergency Maintenance", "EM"},
+                  {"Ad-hoc", "AHoc"}
+                ]
+              }
+        />
+        <.input field={@form[:svcalloperdevice]} type="number" label="Service allocation per device" />
+        <.input field={@form[:timeallo]} type="number" label="Time allocated for entire contract" />
         <.input field={@form[:value]} type="number" label="Value" step="any" />
         <.input field={@form[:active]} type="checkbox" label="Active" />
         <:actions>
