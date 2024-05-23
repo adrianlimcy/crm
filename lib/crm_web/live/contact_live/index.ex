@@ -3,6 +3,7 @@ defmodule CrmWeb.ContactLive.Index do
 
   alias Crm.Contacts
   alias Crm.Contacts.Contact
+  alias Crm.Companies
 
   @impl true
   def mount(_params, _session, socket) do
@@ -18,12 +19,14 @@ defmodule CrmWeb.ContactLive.Index do
     socket
     |> assign(:page_title, "Edit Contact")
     |> assign(:contact, Contacts.get_contact!(id))
+    |> assign(:companies, Companies.list_companies())
   end
 
   defp apply_action(socket, :new, _params) do
     socket
     |> assign(:page_title, "New Contact")
     |> assign(:contact, %Contact{})
+    |> assign(:companies, Companies.list_companies())
   end
 
   defp apply_action(socket, :index, _params) do

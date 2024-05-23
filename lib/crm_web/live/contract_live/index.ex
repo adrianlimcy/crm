@@ -3,6 +3,7 @@ defmodule CrmWeb.ContractLive.Index do
 
   alias Crm.Contracts
   alias Crm.Contracts.Contract
+  alias Crm.Companies
 
   @impl true
   def mount(_params, _session, socket) do
@@ -18,12 +19,14 @@ defmodule CrmWeb.ContractLive.Index do
     socket
     |> assign(:page_title, "Edit Contract")
     |> assign(:contract, Contracts.get_contract!(id))
+    |> assign(:companies, Companies.list_companies())
   end
 
   defp apply_action(socket, :new, _params) do
     socket
     |> assign(:page_title, "New Contract")
     |> assign(:contract, %Contract{})
+    |> assign(:companies, Companies.list_companies())
   end
 
   defp apply_action(socket, :index, _params) do

@@ -11,7 +11,7 @@ defmodule Crm.Repo.Migrations.CreateContracts do
       add :type, :string
       add :svcalloperdevice, :integer
       add :timeallo, :integer
-      add :value, :float
+      add :value, :decimal
       add :active, :boolean, default: false, null: false
       add :company_id, references(:companies, on_delete: :nothing)
 

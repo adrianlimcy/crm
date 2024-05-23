@@ -24,7 +24,12 @@ defmodule CrmWeb.ContactLive.FormComponent do
         <.input field={@form[:mobileno]} type="text" label="Mobileno" />
         <.input field={@form[:officeno]} type="text" label="Officeno" />
         <.input field={@form[:location]} type="text" label="Location" />
-        <.input field={@form[:company_id]} type="text" label="Company" />
+        <%!-- <.input field={@form[:company_id]} type="text" label="Company" /> --%>
+        <.input
+          field={@form[:company_id]}
+          type="select" label="Company"
+          options={Enum.map(@companies, &{&1.name, &1.id})}
+        />
         <:actions>
           <.button phx-disable-with="Saving...">Save Contact</.button>
         </:actions>

@@ -19,7 +19,16 @@ defmodule CrmWeb.ContractLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:company_id]} type="text" label="Company" />
+        <.input
+          field={@form[:company_id]}
+          type="select" label="Company"
+          options={Enum.map(@companies, &{&1.name, &1.id})}
+        />
+        <.input
+          field={@form[:careof_id]}
+          type="select" label="c/o"
+          options={Enum.map(@companies, &{&1.name, &1.id})}
+        />
         <.input field={@form[:do]} type="text" label="Delivery Order" />
         <.input field={@form[:po]} type="text" label="Purchase Order Number" />
         <.input field={@form[:itq]} type="text" label="ITQ Number" />
@@ -37,7 +46,8 @@ defmodule CrmWeb.ContractLive.FormComponent do
         <.input field={@form[:svcalloperdevice]} type="number" label="Service allocation per device" />
         <.input field={@form[:timeallo]} type="number" label="Time allocated for entire contract" />
         <.input field={@form[:value]} type="number" label="Value" step="any" />
-        <.input field={@form[:active]} type="checkbox" label="Active" />
+        <.input field={@form[:active]} type="checkbox" label="Active" checked />
+        <.input field={@form[:remarks]} type="textarea" label="Remarks" />
         <:actions>
           <.button phx-disable-with="Saving...">Save Contract</.button>
         </:actions>

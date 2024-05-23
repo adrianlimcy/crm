@@ -23,3 +23,15 @@ Steps:
   - copy routes to router.ex
   - mix ecto.migrate
 9. modify the contract.ex to properly link to companies
+10. Work on the drop down lists by listing all and using Enum.map
+  - Countries in Company
+  - Companies in Contacts
+  - Companies in Contracts
+    - modify the index.ex defp apply actions for the new and edit to assign the respective variables
+    - pass the variable through index.html.heex to form_component
+    - Enum.map in the options for the select type
+11. Add c/o and remarks into contracts
+    - mix ecto.migration add_careof_and_remarks
+    - alter contracts table to add careof and remarks
+    - update contract.ex to include the new fields
+    - mix ecto.migrate

@@ -5,7 +5,7 @@ defmodule Crm.Contracts.Contract do
   schema "contracts" do
     field :active, :boolean, default: false
     field :type, :string
-    field :value, :float
+    field :value, :decimal
     field :do, :string
     field :po, :string
     field :itq, :string
@@ -13,7 +13,9 @@ defmodule Crm.Contracts.Contract do
     field :enddate, :date
     field :svcalloperdevice, :integer
     field :timeallo, :integer
+    field :remarks, :string
     belongs_to :company, Crm.Companies.Company
+    belongs_to :careof, Crm.Companies.Company
 
     timestamps(type: :utc_datetime)
   end
@@ -21,7 +23,7 @@ defmodule Crm.Contracts.Contract do
   @doc false
   def changeset(contract, attrs) do
     contract
-    |> cast(attrs, [:do, :po, :itq, :startdate, :enddate, :type, :svcalloperdevice, :timeallo, :value, :active, :company_id])
-    |> validate_required([:do, :po, :itq, :startdate, :enddate, :type, :svcalloperdevice, :timeallo, :value, :active, :company_id])
+    |> cast(attrs, [:do, :po, :itq, :startdate, :enddate, :type, :svcalloperdevice, :timeallo, :value, :active, :company_id, :careof_id, :remarks])
+    |> validate_required([:po, :startdate, :enddate, :type, :active, :company_id, :remarks])
   end
 end
