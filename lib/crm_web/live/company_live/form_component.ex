@@ -23,7 +23,20 @@ defmodule CrmWeb.CompanyLive.FormComponent do
         <.input field={@form[:billingadd1]} type="text" label="Billingadd1" />
         <.input field={@form[:billingadd2]} type="text" label="Billingadd2" />
         <.input field={@form[:postalcode]} type="text" label="Postalcode" />
-        <.input field={@form[:country_id]} type="text" label="Country" />
+        <%!-- <.input field={@form[:country_id]} type="select" label="Country"
+          options=
+              {
+                [ {"Singapore", "1"},
+                  {"Malaysia", "2"},
+                  {"Indonesia", "3"}
+                ]
+              }
+        /> --%>
+        <.input
+          field={@form[:country_id]}
+          type="select" label="Country"
+          options={Enum.map(@countries, &{&1.name, &1.id})}
+        />
         <:actions>
           <.button phx-disable-with="Saving...">Save Company</.button>
         </:actions>

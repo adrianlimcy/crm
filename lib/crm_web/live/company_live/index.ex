@@ -3,6 +3,7 @@ defmodule CrmWeb.CompanyLive.Index do
 
   alias Crm.Companies
   alias Crm.Companies.Company
+  alias Crm.Countries
 
   @impl true
   def mount(_params, _session, socket) do
@@ -18,12 +19,14 @@ defmodule CrmWeb.CompanyLive.Index do
     socket
     |> assign(:page_title, "Edit Company")
     |> assign(:company, Companies.get_company!(id))
+    |> assign(:countries, Countries.list_countries())
   end
 
   defp apply_action(socket, :new, _params) do
     socket
     |> assign(:page_title, "New Company")
     |> assign(:company, %Company{})
+    |> assign(:countries, Countries.list_countries())
   end
 
   defp apply_action(socket, :index, _params) do
