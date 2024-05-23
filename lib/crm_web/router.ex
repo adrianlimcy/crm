@@ -32,6 +32,21 @@ defmodule CrmWeb.Router do
 
     live "/companies/:id", CompanyLive.Show, :show
     live "/companies/:id/show/edit", CompanyLive.Show, :edit
+
+    live "/contacts", ContactLive.Index, :index
+    live "/contacts/new", ContactLive.Index, :new
+    live "/contacts/:id/edit", ContactLive.Index, :edit
+
+    live "/contacts/:id", ContactLive.Show, :show
+    live "/contacts/:id/show/edit", ContactLive.Show, :edit
+
+    live "/contracts", ContractLive.Index, :index
+    live "/contracts/new", ContractLive.Index, :new
+    live "/contracts/:id/edit", ContractLive.Index, :edit
+
+    live "/contracts/:id", ContractLive.Show, :show
+    live "/contracts/:id/show/edit", ContractLive.Show, :edit
+
   end
 
   # Other scopes may use custom stacks.

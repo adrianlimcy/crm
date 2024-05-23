@@ -16,7 +16,7 @@
   <:col :let={{_id, company}} label="Billingadd1"><%= company.billingadd1 %></:col>
   <:col :let={{_id, company}} label="Billingadd2"><%= company.billingadd2 %></:col>
   <:col :let={{_id, company}} label="Postalcode"><%= company.postalcode %></:col>
-  <:col :let={{_id, company}} label="Country"><%= company.country.name %></:col>
+  <%!-- <:col :let={{_id, company}} label="Country"><%= company.country.name %></:col> --%>
   <:action :let={{_id, company}}>
     <div class="sr-only">
       <.link navigate={~p"/companies/#{company}"}>Show</.link>
@@ -40,7 +40,6 @@
     title={@page_title}
     action={@live_action}
     company={@company}
-    country_id={@company.country_id || :new}
     patch={~p"/companies"}
   />
 </.modal>
