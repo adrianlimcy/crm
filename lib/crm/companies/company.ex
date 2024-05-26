@@ -1,8 +1,8 @@
 defmodule Crm.Companies.Company do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Crm.Contacts.Contact
-  alias Crm.Contracts.Contract
+  # alias Crm.Contacts.Contact
+  # alias Crm.Contracts.Contract
 
   schema "companies" do
     field :name, :string
@@ -10,8 +10,8 @@ defmodule Crm.Companies.Company do
     field :billingadd2, :string
     field :postalcode, :string
     belongs_to :country, Crm.Countries.Country
-    has_many :contacts, Contact, on_delete: :delete_all
-    has_many :contracts, Contract, on_delete: :delete_all
+    # has_many :contacts, Contact, on_delete: :delete_all
+    # has_many :contracts, Contract, on_delete: :delete_all
 
     timestamps(type: :utc_datetime)
   end

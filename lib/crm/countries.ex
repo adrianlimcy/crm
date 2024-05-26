@@ -18,7 +18,7 @@ defmodule Crm.Countries do
 
   """
   def list_countries do
-    Repo.all(Country) |> Repo.preload([:companies])
+    Repo.all(Country)
   end
 
   @doc """
@@ -35,8 +35,7 @@ defmodule Crm.Countries do
       ** (Ecto.NoResultsError)
 
   """
-  def get_country!(id), do: Repo.get!(Country, id) |> Repo.preload([:companies])
-
+  def get_country!(id), do: Repo.get!(Country, id)
   @doc """
   Creates a country.
 

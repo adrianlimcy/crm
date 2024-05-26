@@ -1,11 +1,11 @@
 defmodule Crm.Countries.Country do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Crm.Companies.Company
+  # alias Crm.Companies.Company
 
   schema "countries" do
     field :name, :string
-    has_many :companies, Company, on_delete: :delete_all
+    # has_many :companies, Company, on_delete: :delete_all
 
     timestamps(type: :utc_datetime)
   end

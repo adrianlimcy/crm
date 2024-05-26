@@ -29,6 +29,7 @@ defmodule CrmWeb.ContractLive.FormComponent do
           type="select" label="c/o"
           options={Enum.map(@companies, &{&1.name, &1.id})}
         />
+        <.input field={@form[:contractno]} type="text" label="Contract Number" />
         <.input field={@form[:do]} type="text" label="Delivery Order" />
         <.input field={@form[:po]} type="text" label="Purchase Order Number" />
         <.input field={@form[:itq]} type="text" label="ITQ Number" />

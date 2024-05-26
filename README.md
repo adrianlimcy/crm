@@ -30,8 +30,16 @@ Steps:
     - modify the index.ex defp apply actions for the new and edit to assign the respective variables
     - pass the variable through index.html.heex to form_component
     - Enum.map in the options for the select type
-11. Add c/o and remarks into contracts
+11. Add c/o and remarks and contractno into contracts
     - mix ecto.migration add_careof_and_remarks
     - alter contracts table to add careof and remarks
     - update contract.ex to include the new fields
     - mix ecto.migrate
+12. mix phx.gen.live Devices Device devices contract_id:references:contracts serialno:string brand:string model:string currentlocation:text active:boolean remarks:text
+  - copy routes to router.ex
+  - mix ecto.migrate
+13. modify the device.ex to properly link to companies and contracts
+14. Work on the drop down lists by listing all and using Enum.map
+  - Companies in Devices
+  - Contracts in Devices
+15. Create the dummy database entries in seeds.exs
