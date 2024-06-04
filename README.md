@@ -43,3 +43,21 @@ Steps:
   - Companies in Devices
   - Contracts in Devices
 15. Create the dummy database entries in seeds.exs
+16. Create the simple authentication with user and profiles
+  - https://github.com/adrianlimcy/accountwithprofiledemo
+  - mix phx.gen.auth Accounts User users
+  - mix deps.get
+  - mix ecto.migrate
+17. mix ecto.gen.migration add_name_profile_role
+  - added profile, role and active
+  - add in migration changes
+  - add fields in user.ex and amend changeset
+18. Follow the steps in the github link
+19. 
+
+
+
+
+16. mix phx.gen.live Records Record records svcno:string svcdate:date timeused:integer device_id:reference:devices contact_id:reference:contacts engineer_id:reference:users createdby_id:reference:users
+  - should I create a next in the modal to filter the contacts? Or figure out a way to filter contacts via device_id -> contract+id -> company_id -> contacts?
+  - try to paginate list using https://github.com/drewolson/scrivener_ecto
