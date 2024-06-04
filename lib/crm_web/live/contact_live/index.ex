@@ -6,8 +6,19 @@ defmodule CrmWeb.ContactLive.Index do
   alias Crm.Companies
 
   @impl true
-  def mount(_params, _session, socket) do
-    {:ok, stream(socket, :contacts, Contacts.list_contacts())}
+  def mount(params, _session, socket) do
+    contacts = Contacts.paginate_contacts(params).entries
+    total_pages = Contacts.paginate_contacts(params).total_pages
+    page_number = Contacts.paginate_contacts(params).page_number
+    total_entries = Contacts.paginate_contacts(params).total_entries
+
+    {:ok, stream(socket
+    |> assign(:contacts, contacts)
+    |> assign(:total_pages, total_pages)
+    |> assign(:page_number, page_number)
+    |> assign(:total_entries, total_entries),
+    :contacts,
+    contacts)}
   end
 
   @impl true

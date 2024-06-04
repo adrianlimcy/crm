@@ -21,6 +21,10 @@ defmodule Crm.Devices do
     Repo.all(Device) |> Repo.preload([:contract])
   end
 
+  def paginate_devices(params) do
+    Repo.paginate(Device, params)
+  end
+
   @doc """
   Gets a single device.
 
@@ -35,7 +39,7 @@ defmodule Crm.Devices do
       ** (Ecto.NoResultsError)
 
   """
-  def get_device!(id), do: Repo.get!(Device, id) |> Repo.preload([:contracts])
+  def get_device!(id), do: Repo.get!(Device, id) |> Repo.preload([:contract])
 
   @doc """
   Creates a device.

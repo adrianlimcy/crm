@@ -21,6 +21,10 @@ defmodule Crm.Companies do
     Repo.all(Company) |> Repo.preload([:country])
   end
 
+  def paginate_companies(params) do
+    Repo.paginate(Company, params)
+  end
+
   @doc """
   Gets a single company.
 

@@ -21,6 +21,10 @@ defmodule Crm.Countries do
     Repo.all(Country)
   end
 
+  def paginate_countries(params) do
+    Repo.paginate(Country, params)
+  end
+
   @doc """
   Gets a single country.
 

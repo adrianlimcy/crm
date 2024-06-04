@@ -6,8 +6,21 @@ defmodule CrmWeb.DeviceLive.Index do
   alias Crm.Contracts
 
   @impl true
-  def mount(_params, _session, socket) do
-    {:ok, stream(socket, :devices, Devices.list_devices())}
+  def mount(params, _session, socket) do
+    devices = Devices.paginate_devices(params).entries
+    total_pages = Devices.paginate_devices(params).total_pages
+    page_number = Devices.paginate_devices(params).page_number
+    total_entries = Devices.paginate_devices(params).total_entries
+
+    IO.inspect(Devices.paginate_devices(params))
+
+    {:ok, stream(socket
+    |> assign(:devices, devices)
+    |> assign(:total_pages, total_pages)
+    |> assign(:page_number, page_number)
+    |> assign(:total_entries, total_entries),
+    :devices,
+    devices)}
   end
 
   @impl true

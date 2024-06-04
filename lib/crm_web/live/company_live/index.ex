@@ -6,8 +6,19 @@ defmodule CrmWeb.CompanyLive.Index do
   alias Crm.Countries
 
   @impl true
-  def mount(_params, _session, socket) do
-    {:ok, stream(socket, :companies, Companies.list_companies())}
+  def mount(params, _session, socket) do
+    companies = Companies.paginate_companies(params).entries
+    total_pages = Companies.paginate_companies(params).total_pages
+    page_number = Companies.paginate_companies(params).page_number
+    total_entries = Companies.paginate_companies(params).total_entries
+
+    {:ok, stream(socket
+    |> assign(:contacts, companies)
+    |> assign(:total_pages, total_pages)
+    |> assign(:page_number, page_number)
+    |> assign(:total_entries, total_entries),
+    :companies,
+    companies)}
   end
 
   @impl true

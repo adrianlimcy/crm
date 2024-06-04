@@ -21,6 +21,10 @@ defmodule Crm.Contacts do
     Repo.all(Contact) |> Repo.preload([:company])
   end
 
+  def paginate_contacts(params) do
+    Repo.paginate(Contact, params)
+  end
+
   @doc """
   Gets a single contact.
 

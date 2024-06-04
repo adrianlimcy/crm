@@ -6,9 +6,25 @@ defmodule CrmWeb.ContractLive.Index do
   alias Crm.Companies
 
   @impl true
-  def mount(_params, _session, socket) do
-    {:ok, stream(socket, :contracts, Contracts.list_contracts())}
+  # def mount(_params, _session, socket) do
+  #   {:ok, stream(socket, :contracts, Contracts.list_contracts())}
+  # end
+
+  def mount(params, _session, socket) do
+    contracts = Contracts.paginate_contracts(params).entries
+    total_pages = Contracts.paginate_contracts(params).total_pages
+    page_number = Contracts.paginate_contracts(params).page_number
+    total_entries = Contracts.paginate_contracts(params).total_entries
+
+    {:ok, stream(socket
+    |> assign(:contracts, contracts)
+    |> assign(:total_pages, total_pages)
+    |> assign(:page_number, page_number)
+    |> assign(:total_entries, total_entries),
+    :contracts,
+    contracts)}
   end
+
 
   @impl true
   def handle_params(params, _url, socket) do

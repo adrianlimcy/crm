@@ -21,6 +21,10 @@ defmodule Crm.Contracts do
     Repo.all(Contract) |> Repo.preload([:company])
   end
 
+  def paginate_contracts(params) do
+    Repo.paginate(Contract, params)
+  end
+
   @doc """
   Gets a single contract.
 

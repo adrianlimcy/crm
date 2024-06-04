@@ -54,6 +54,48 @@ companies = [
     billingadd2: "#02-11",
     postalcode: "234334",
     country_id: "4"
+  },
+  %{
+    name: "Company05",
+    billingadd1: "someaddress05",
+    billingadd2: "#01-11",
+    postalcode: "2343dsf34",
+    country_id: "4"
+  },
+  %{
+    name: "Company06",
+    billingadd1: "someaddress06",
+    billingadd2: "#05-11",
+    postalcode: "233434",
+    country_id: "1"
+  },
+  %{
+    name: "Company07",
+    billingadd1: "someaddress07",
+    billingadd2: "#02-11",
+    postalcode: "234334",
+    country_id: "4"
+  },
+  %{
+    name: "Company08",
+    billingadd1: "someaddress08",
+    billingadd2: "#02-11",
+    postalcode: "234334",
+    country_id: "4"
+  },
+  %{
+    name: "Company09",
+    billingadd1: "someaddress09",
+    billingadd2: "#02-11",
+    postalcode: "234334",
+    country_id: "4"
+  },
+  %{
+    name: "Company010",
+    billingadd1: "someaddress10",
+    billingadd2: "#02-11",
+    postalcode: "234334",
+    country_id: "4"
   }
 ]
 
@@ -85,6 +127,54 @@ contacts = [
   %{
     name: "Rock",
     email: "rock@test.com.my",
+    mobileno: "665445444",
+    officeno: "64443423",
+    location: "SomeLocation4",
+    company_id: "4"
+  },
+  %{
+    name: "Rockie",
+    email: "rockie@test.com.my",
+    mobileno: "665445444",
+    officeno: "64443423",
+    location: "SomeLocation4",
+    company_id: "4"
+  },
+  %{
+    name: "Rocky",
+    email: "rocky@test.com.my",
+    mobileno: "665445444",
+    officeno: "64443423",
+    location: "SomeLocation4",
+    company_id: "4"
+  },
+  %{
+    name: "Pock",
+    email: "pock@test.com.my",
+    mobileno: "665445444",
+    officeno: "64443423",
+    location: "SomeLocation4",
+    company_id: "4"
+  },
+  %{
+    name: "Pockie",
+    email: "pockie@test.com.my",
+    mobileno: "665445444",
+    officeno: "64443423",
+    location: "SomeLocation4",
+    company_id: "4"
+  },
+  %{
+    name: "Pocky",
+    email: "Pock@test.com.my",
+    mobileno: "665445444",
+    officeno: "64443423",
+    location: "SomeLocation4",
+    company_id: "4"
+  },
+  %{
+    name: "Poock",
+    email: "poock@test.com.my",
     mobileno: "665445444",
     officeno: "64443423",
     location: "SomeLocation4",
@@ -156,6 +246,118 @@ contracts = [
     company_id: "1",
     careof_id: "1",
     remarks: "Nothing"
+  },
+  %{
+    do: "",
+    po: "324324",
+    itq: "23213",
+    startdate: "2018-08-01",
+    enddate: "2020-07-30",
+    type: "PM",
+    svcalloperdevice: "4",
+    timeallo: "",
+    value: "8899",
+    active: true,
+    contractno: "201801010111",
+    company_id: "1",
+    careof_id: "1",
+    remarks: "Nothing"
+  },
+  %{
+    do: "",
+    po: "324324",
+    itq: "23213",
+    startdate: "2018-08-01",
+    enddate: "2020-07-30",
+    type: "PM",
+    svcalloperdevice: "4",
+    timeallo: "",
+    value: "8899",
+    active: true,
+    contractno: "201801010111",
+    company_id: "1",
+    careof_id: "1",
+    remarks: "Nothing"
+  },
+  %{
+    do: "",
+    po: "3665324",
+    itq: "223213",
+    startdate: "2018-08-01",
+    enddate: "2020-07-30",
+    type: "PM",
+    svcalloperdevice: "4",
+    timeallo: "",
+    value: "8899",
+    active: true,
+    contractno: "201801010111",
+    company_id: "1",
+    careof_id: "1",
+    remarks: "Nothing"
+  },
+  %{
+    do: "",
+    po: "54654324",
+    itq: "23213",
+    startdate: "2018-08-01",
+    enddate: "2020-07-30",
+    type: "PM",
+    svcalloperdevice: "4",
+    timeallo: "",
+    value: "8899",
+    active: true,
+    contractno: "201801010111",
+    company_id: "1",
+    careof_id: "1",
+    remarks: "Nothing"
+  },
+  %{
+    do: "",
+    po: "656524324",
+    itq: "2413",
+    startdate: "2018-08-01",
+    enddate: "2020-07-30",
+    type: "PM",
+    svcalloperdevice: "4",
+    timeallo: "",
+    value: "8899",
+    active: true,
+    contractno: "201801010111",
+    company_id: "1",
+    careof_id: "1",
+    remarks: "Nothing"
+  },
+  %{
+    do: "",
+    po: "77324",
+    itq: "56213",
+    startdate: "2018-08-01",
+    enddate: "2020-07-30",
+    type: "PM",
+    svcalloperdevice: "4",
+    timeallo: "",
+    value: "8899",
+    active: true,
+    contractno: "201801010111",
+    company_id: "1",
+    careof_id: "1",
+    remarks: "Nothing"
+  },
+  %{
+    do: "",
+    po: "94324",
+    itq: "533213",
+    startdate: "2018-08-01",
+    enddate: "2020-07-30",
+    type: "PM",
+    svcalloperdevice: "4",
+    timeallo: "",
+    value: "8899",
+    active: true,
+    contractno: "201801010111",
+    company_id: "1",
+    careof_id: "1",
+    remarks: "Nothing"
   }
 ]
 
@@ -195,7 +397,124 @@ devices = [
     remarks: "something",
     contract_id: "2",
     active: true
-  }
+  },
+  %{
+    serialno: "345wew645435",
+    brand: "Kodak",
+    model: "i3300",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "3",
+    active: true
+  },
+  %{
+    serialno: "3454645435",
+    brand: "Mekel",
+    model: "MEKEL VIEWSCAN M200",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "2",
+    active: true
+  },
+  %{
+    serialno: "34535435",
+    brand: "Fujitsu",
+    model: "ix1600",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "4",
+    active: true
+  },
+  %{
+    serialno: "34535435",
+    brand: "Fujitsu",
+    model: "ix1600",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "4",
+    active: true
+  },
+  %{
+    serialno: "34535435",
+    brand: "Fujitsu",
+    model: "ix1600",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "4",
+    active: true
+  },
+  %{
+    serialno: "34535435",
+    brand: "Fujitsu",
+    model: "ix1600",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "4",
+    active: true
+  },
+  %{
+    serialno: "34535435",
+    brand: "Fujitsu",
+    model: "ix1600",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "4",
+    active: true
+  },
+  %{
+    serialno: "34535435",
+    brand: "Fujitsu",
+    model: "ix1600",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "4",
+    active: true
+  },
+  %{
+    serialno: "34535435",
+    brand: "Fujitsu",
+    model: "ix1600",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "4",
+    active: true
+  },
+  %{
+    serialno: "34535435",
+    brand: "Fujitsu",
+    model: "ix1600",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "4",
+    active: true
+  },
+  %{
+    serialno: "34535435",
+    brand: "Fujitsu",
+    model: "ix1600",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "4",
+    active: true
+  },
+  %{
+    serialno: "34535435",
+    brand: "Fujitsu",
+    model: "ix1600",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "4",
+    active: true
+  },
+  %{
+    serialno: "34535435",
+    brand: "Fujitsu",
+    model: "ix1600",
+    currentlocation: "Office",
+    remarks: "something",
+    contract_id: "4",
+    active: true
+  },
 ]
 
 Enum.each(countries, fn(data)->

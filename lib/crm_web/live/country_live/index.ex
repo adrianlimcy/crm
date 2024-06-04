@@ -5,8 +5,19 @@ defmodule CrmWeb.CountryLive.Index do
   alias Crm.Countries.Country
 
   @impl true
-  def mount(_params, _session, socket) do
-    {:ok, stream(socket, :countries, Countries.list_countries())}
+  def mount(params, _session, socket) do
+    countries = Countries.paginate_countries(params).entries
+    total_pages = Countries.paginate_countries(params).total_pages
+    page_number = Countries.paginate_countries(params).page_number
+    total_entries = Countries.paginate_countries(params).total_entries
+
+    {:ok, stream(socket
+    |> assign(:countries, countries)
+    |> assign(:total_pages, total_pages)
+    |> assign(:page_number, page_number)
+    |> assign(:total_entries, total_entries),
+    :countries,
+    countries)}
   end
 
   @impl true

@@ -53,11 +53,23 @@ Steps:
   - add in migration changes
   - add fields in user.ex and amend changeset
 18. Follow the steps in the github link
-19. 
+19. adding pagination for all tables
+  - https://github.com/adrianlimcy/phoenix_pagination
+  - add {:scrivener_ecto, "~> 2.7"} to mix.exs within defp deps
+  - mix deps.get
+  - set use Scrivener, page_size: 5 in lib/crm/repo.ex
+20. create function in lib/crm/devices.ex
+  - def paginate_devices
+  - modify lib/crm_web/live/device_live/index.ex in def mount sockets
+  - have to amend show.ex to include the load the associations so that the dropdown works
+21. do the same for
+  - contracts
+  - contact
+  - company
+  - country
 
 
-
-
-16. mix phx.gen.live Records Record records svcno:string svcdate:date timeused:integer device_id:reference:devices contact_id:reference:contacts engineer_id:reference:users createdby_id:reference:users
+To do:
+22. mix phx.gen.live Records Record records svcno:string svcdate:date timeused:integer device_id:reference:devices contact_id:reference:contacts engineer_id:reference:users createdby_id:reference:users
   - should I create a next in the modal to filter the contacts? Or figure out a way to filter contacts via device_id -> contract+id -> company_id -> contacts?
   - try to paginate list using https://github.com/drewolson/scrivener_ecto
