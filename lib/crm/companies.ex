@@ -22,7 +22,8 @@ defmodule Crm.Companies do
   end
 
   def paginate_companies(params) do
-    Repo.paginate(Company, params)
+    sortedCompany = from(c in Company, order_by: [asc: c.name])
+    Repo.paginate(sortedCompany, params)
   end
 
   @doc """

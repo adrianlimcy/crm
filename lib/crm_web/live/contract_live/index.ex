@@ -11,7 +11,8 @@ defmodule CrmWeb.ContractLive.Index do
   # end
 
   def mount(params, _session, socket) do
-    contracts = Contracts.paginate_contracts(params).entries
+    # contracts = Contracts.paginate_contracts(params).entries
+    contracts = Contracts.sorted_contracts(params)
     total_pages = Contracts.paginate_contracts(params).total_pages
     page_number = Contracts.paginate_contracts(params).page_number
     total_entries = Contracts.paginate_contracts(params).total_entries

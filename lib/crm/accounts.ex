@@ -23,7 +23,8 @@ defmodule Crm.Accounts do
 
   """
   def list_accounts() do
-    Repo.all(User)
+    sortedUser = from(c in User, order_by: [asc: c.name])
+    Repo.all(sortedUser)
   end
 
   def update_profile(%User{} = account, attrs) do

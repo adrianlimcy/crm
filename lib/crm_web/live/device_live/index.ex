@@ -12,8 +12,6 @@ defmodule CrmWeb.DeviceLive.Index do
     page_number = Devices.paginate_devices(params).page_number
     total_entries = Devices.paginate_devices(params).total_entries
 
-    IO.inspect(Devices.paginate_devices(params))
-
     {:ok, stream(socket
     |> assign(:devices, devices)
     |> assign(:total_pages, total_pages)

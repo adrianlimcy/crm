@@ -22,7 +22,12 @@ defmodule Crm.Contacts do
   end
 
   def paginate_contacts(params) do
-    Repo.paginate(Contact, params)
+    sortedContacts = from(c in Contact, order_by: [asc: c.company_id])
+    Repo.paginate(sortedContacts, params)
+  end
+
+  def sorted_contacts(params) do
+    paginate_contacts(params).entries |> Repo.preload([:company])
   end
 
   @doc """

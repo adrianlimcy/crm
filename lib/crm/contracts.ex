@@ -22,7 +22,12 @@ defmodule Crm.Contracts do
   end
 
   def paginate_contracts(params) do
-    Repo.paginate(Contract, params)
+    sortedContract = from(c in Contract, order_by: [desc: c.contractno])
+    Repo.paginate(sortedContract, params)
+  end
+
+  def sorted_contracts(params) do
+    paginate_contracts(params).entries |> Repo.preload([:company])
   end
 
   @doc """

@@ -22,7 +22,8 @@ defmodule Crm.Devices do
   end
 
   def paginate_devices(params) do
-    Repo.paginate(Device, params)
+    sortedDevices = from(c in Device, order_by: [asc: c.serialno])
+    Repo.paginate(sortedDevices, params)
   end
 
   @doc """

@@ -1,0 +1,79 @@
+<.header>
+  Listing Records
+  <:actions>
+    <.link patch={~p"/records/new"}>
+      <.button>New Record</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="records"
+  rows={@streams.records}
+  row_click={fn {_id, record} -> JS.navigate(~p"/records/#{record}") end}
+>
+  <:col :let={{_id, record}} label="Service #"><%= record.svcno %></:col>
+  <:col :let={{_id, record}} label="Date"><%= record.svcdate %></:col>
+  <:col :let={{_id, record}} label="Time Used"><%= record.timeused %></:col>
+  <:col :let={{_id, record}} label="Contact"><%= record.contact.name %></:col>
+  <:col :let={{_id, record}} label="Device"><%= record.device.model %></:col>  
+  <:action :let={{_id, record}}>
+  
+    <div class="sr-only">
+      <.link navigate={~p"/records/#{record}"}>Show</.link>
+    </div>
+    <.link patch={~p"/records/#{record}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, record}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: record.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<div  style="display: flex; flex-direction: row; padding: 2px;">
+  <div>
+    <%= if @page_number > 1 do %>
+      <.link navigate={~p"/records?#{%{page: @page_number - 1}}"} class="pagination-link">
+        <div class="flex gap-2 items-center ">
+          Previous
+        </div>
+        </.link>
+    <% end %>
+    </div>
+
+    <div  style="display: flex; flex-direction: row; padding: 2px;">
+      <%= for idx <-  Enum.to_list(1..@total_pages) do %>
+        <.link navigate={~p"/records?#{%{page: idx}}"} class="pagination-link">
+          <%= if @page_number == idx do %>
+            <p style="border: 1px solid black; padding-left: 5px; padding-right: 5px;">
+              <%= idx %>
+            </p>
+          <% else %>
+            <p style="padding-left: 5px; padding-right: 5px;">
+              <%= idx %>
+            </p>
+          <% end %>
+          </.link>
+      <% end %>
+    </div>
+  </div>
+
+
+<.modal :if={@live_action in [:new, :edit]} id="record-modal" show on_cancel={JS.patch(~p"/records")}>
+  <.live_component
+    module={CrmWeb.RecordLive.FormComponent}
+    id={@record.id || :new}
+    title={@page_title}
+    action={@live_action}
+    record={@record}
+    devices={@devices}
+    contacts={@contacts}
+    engineers={@engineers}
+    createdby = {@current_user.id}
+    patch={~p"/records"}
+  />
+</.modal>

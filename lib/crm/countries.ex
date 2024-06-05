@@ -22,7 +22,8 @@ defmodule Crm.Countries do
   end
 
   def paginate_countries(params) do
-    Repo.paginate(Country, params)
+    sortedCountry = from(c in Country, order_by: [asc: c.name])
+    Repo.paginate(sortedCountry, params)
   end
 
   @doc """

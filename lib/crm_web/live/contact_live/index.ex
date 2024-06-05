@@ -7,7 +7,8 @@ defmodule CrmWeb.ContactLive.Index do
 
   @impl true
   def mount(params, _session, socket) do
-    contacts = Contacts.paginate_contacts(params).entries
+    # contacts = Contacts.paginate_contacts(params).entries
+    contacts = Contacts.sorted_contacts(params)
     total_pages = Contacts.paginate_contacts(params).total_pages
     page_number = Contacts.paginate_contacts(params).page_number
     total_entries = Contacts.paginate_contacts(params).total_entries

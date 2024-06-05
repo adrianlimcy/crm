@@ -105,6 +105,13 @@ defmodule CrmWeb.Router do
 
       live "/devices/:id", DeviceLive.Show, :show
       live "/devices/:id/show/edit", DeviceLive.Show, :edit
+
+      live "/records", RecordLive.Index, :index
+      live "/records/new", RecordLive.Index, :new
+      live "/records/:id/edit", RecordLive.Index, :edit
+
+      live "/records/:id", RecordLive.Show, :show
+      live "/records/:id/show/edit", RecordLive.Show, :edit
     end
   end
 

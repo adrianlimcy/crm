@@ -67,9 +67,16 @@ Steps:
   - contact
   - company
   - country
-
-
-To do:
-22. mix phx.gen.live Records Record records svcno:string svcdate:date timeused:integer device_id:reference:devices contact_id:reference:contacts engineer_id:reference:users createdby_id:reference:users
-  - should I create a next in the modal to filter the contacts? Or figure out a way to filter contacts via device_id -> contract+id -> company_id -> contacts?
-  - try to paginate list using https://github.com/drewolson/scrivener_ecto
+22. mix phx.gen.live Records Record records svcno:string svcdate:date timeused:integer device_id:references:devices contact_id:references:contacts engineer_id:references:users createdby_id:references:users
+  - copy routes
+  - adjust schema at record.ex
+  - mix ecto.migrate
+23. added some sorting order when displaying indexes for
+  - countries
+  - companies
+  - contacts
+  - contracts
+  - devices
+  - records
+  - accounts
+24. added a preload to pagination in records.ex so it will display contact and model

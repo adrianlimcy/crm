@@ -15,6 +15,7 @@ alias Crm.Companies
 alias Crm.Contacts
 alias Crm.Contracts
 alias Crm.Devices
+alias Crm.Records
 
 countries = [
   %{    name: "Singapore"  },
@@ -211,7 +212,7 @@ contracts = [
     value: "5000",
     active: true,
     contractno: "201912010112",
-    company_id: "1",
+    company_id: "2",
     careof_id: "1",
     remarks: "no remarks"
   },
@@ -227,7 +228,7 @@ contracts = [
     value: "20000",
     active: true,
     contractno: "201806001111",
-    company_id: "1",
+    company_id: "3",
     careof_id: "1",
     remarks: ""
   },
@@ -243,7 +244,7 @@ contracts = [
     value: "8899",
     active: true,
     contractno: "201801010111",
-    company_id: "1",
+    company_id: "4",
     careof_id: "1",
     remarks: "Nothing"
   },
@@ -259,7 +260,7 @@ contracts = [
     value: "8899",
     active: true,
     contractno: "201801010111",
-    company_id: "1",
+    company_id: "2",
     careof_id: "1",
     remarks: "Nothing"
   },
@@ -275,7 +276,7 @@ contracts = [
     value: "8899",
     active: true,
     contractno: "201801010111",
-    company_id: "1",
+    company_id: "3",
     careof_id: "1",
     remarks: "Nothing"
   },
@@ -291,7 +292,7 @@ contracts = [
     value: "8899",
     active: true,
     contractno: "201801010111",
-    company_id: "1",
+    company_id: "4",
     careof_id: "1",
     remarks: "Nothing"
   },
@@ -517,6 +518,65 @@ devices = [
   },
 ]
 
+records = [
+  %{svcno: "11221122",
+  svcdate: "2020-01-01",
+  timeused: "30",
+  device_id: "1",
+  contact_id: "1",
+  createdby_id: "1",
+  engineer_id: "2"
+  },
+  %{svcno: "11221123",
+  svcdate: "2020-01-01",
+  timeused: "30",
+  device_id: "1",
+  contact_id: "1",
+  createdby_id: "1",
+  engineer_id: "2"
+  },
+  %{svcno: "11221332",
+  svcdate: "2020-01-01",
+  timeused: "30",
+  device_id: "1",
+  contact_id: "1",
+  createdby_id: "1",
+  engineer_id: "2"
+  },
+  %{svcno: "11233122",
+  svcdate: "2020-01-01",
+  timeused: "30",
+  device_id: "1",
+  contact_id: "1",
+  createdby_id: "1",
+  engineer_id: "2"
+  },
+  %{svcno: "13321122",
+  svcdate: "2020-01-01",
+  timeused: "30",
+  device_id: "1",
+  contact_id: "1",
+  createdby_id: "1",
+  engineer_id: "2"
+  },
+  %{svcno: "13331122",
+  svcdate: "2020-01-01",
+  timeused: "30",
+  device_id: "1",
+  contact_id: "1",
+  createdby_id: "1",
+  engineer_id: "2"
+  },
+  %{svcno: "14441122",
+  svcdate: "2020-01-01",
+  timeused: "30",
+  device_id: "1",
+  contact_id: "1",
+  createdby_id: "1",
+  engineer_id: "2"
+  }
+]
+
 Enum.each(countries, fn(data)->
   Countries.create_country(data)
 end)
@@ -531,4 +591,7 @@ Enum.each(contracts, fn(data)->
 end)
 Enum.each(devices, fn(data)->
   Devices.create_device(data)
+end)
+Enum.each(records, fn(data)->
+  Records.create_record(data)
 end)
