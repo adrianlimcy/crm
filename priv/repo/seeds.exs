@@ -30,6 +30,7 @@ countries = [
 companies = [
   %{
     name: "Company01",
+    brn: "11221122",
     billingadd1: "someaddress01",
     billingadd2: "#08-88",
     postalcode: "112233",
@@ -37,6 +38,7 @@ companies = [
   },
   %{
     name: "Company02",
+    brn: "1124334422",
     billingadd1: "someaddress02",
     billingadd2: "#09-99",
     postalcode: "1334455",
@@ -44,6 +46,7 @@ companies = [
   },
   %{
     name: "Company03",
+    brn: "11254454422",
     billingadd1: "someaddress03",
     billingadd2: "#01-10",
     postalcode: "1553325",
@@ -51,6 +54,7 @@ companies = [
   },
   %{
     name: "Company04",
+    brn: "11344324122",
     billingadd1: "someaddress04",
     billingadd2: "#02-11",
     postalcode: "234334",
@@ -58,6 +62,7 @@ companies = [
   },
   %{
     name: "Company05",
+    brn: "1145645622",
     billingadd1: "someaddress05",
     billingadd2: "#01-11",
     postalcode: "2343dsf34",
@@ -65,6 +70,7 @@ companies = [
   },
   %{
     name: "Company06",
+    brn: "1566564322",
     billingadd1: "someaddress06",
     billingadd2: "#05-11",
     postalcode: "233434",
@@ -72,6 +78,7 @@ companies = [
   },
   %{
     name: "Company07",
+    brn: "11224454542",
     billingadd1: "someaddress07",
     billingadd2: "#02-11",
     postalcode: "234334",
@@ -79,6 +86,7 @@ companies = [
   },
   %{
     name: "Company08",
+    brn: "1124535422",
     billingadd1: "someaddress08",
     billingadd2: "#02-11",
     postalcode: "234334",
@@ -86,6 +94,7 @@ companies = [
   },
   %{
     name: "Company09",
+    brn: "11254535422",
     billingadd1: "someaddress09",
     billingadd2: "#02-11",
     postalcode: "234334",
@@ -93,6 +102,7 @@ companies = [
   },
   %{
     name: "Company010",
+    brn: "4322213122",
     billingadd1: "someaddress10",
     billingadd2: "#02-11",
     postalcode: "234334",

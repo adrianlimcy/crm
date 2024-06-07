@@ -4,6 +4,7 @@ defmodule Crm.Repo.Migrations.CreateCompanies do
   def change do
     create table(:companies) do
       add :name, :string
+      add :brn, :string
       add :billingadd1, :text
       add :billingadd2, :text
       add :postalcode, :string

@@ -14,8 +14,6 @@ defmodule CrmWeb.RecordLive.Index do
     page_number = Records.paginate_records(params).page_number
     total_entries = Records.paginate_records(params).total_entries
 
-    IO.inspect(records)
-
     {:ok, stream(socket
     |> assign(:records, records)
     |> assign(:total_pages, total_pages)

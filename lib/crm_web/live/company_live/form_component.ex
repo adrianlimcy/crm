@@ -20,6 +20,7 @@ defmodule CrmWeb.CompanyLive.FormComponent do
         phx-submit="save"
       >
         <.input field={@form[:name]} type="text" label="Name" />
+        <.input field={@form[:brn]} type="text" label="BRN/UEN" />
         <.input field={@form[:billingadd1]} type="text" label="Billingadd1" />
         <.input field={@form[:billingadd2]} type="text" label="Billingadd2" />
         <.input field={@form[:postalcode]} type="text" label="Postalcode" />
