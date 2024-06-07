@@ -18,7 +18,7 @@ defmodule Crm.Companies do
 
   """
   def list_companies do
-    Repo.all(Company) |> Repo.preload([:country])
+    Repo.all(Company) |> Repo.preload([:country, :contracts, :contacts])
   end
 
   def paginate_companies(params) do
@@ -40,7 +40,7 @@ defmodule Crm.Companies do
       ** (Ecto.NoResultsError)
 
   """
-  def get_company!(id), do: Repo.get!(Company, id) |> Repo.preload([:country])
+  def get_company!(id), do: Repo.get!(Company, id) |> Repo.preload([:country, :contracts, :contacts])
 
   @doc """
   Creates a company.
