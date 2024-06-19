@@ -79,4 +79,6 @@ Steps:
   - devices
   - records
   - accounts
-24. added a preload to pagination in records.ex so it will display contact and model
+24. added a preload to pagination in records.ex so it will display contact and device models
+25. list only engineers in creating new service records with engineer
+26.

@@ -27,6 +27,11 @@ defmodule Crm.Accounts do
     Repo.all(sortedUser)
   end
 
+  def list_engineers() do
+    sortedUser = from(c in User, where: c.role == "engineer",order_by: [asc: c.name])
+    Repo.all(sortedUser)
+  end
+
   def update_profile(%User{} = account, attrs) do
     account
     |> User.profile_changeset(attrs)

@@ -3,6 +3,7 @@ defmodule CrmWeb.CompanyLive.Show do
 
   alias Crm.Companies
   alias Crm.Countries
+  alias Crm.Records
 
   @impl true
   def mount(_params, _session, socket) do
@@ -16,6 +17,7 @@ defmodule CrmWeb.CompanyLive.Show do
      |> assign(:page_title, page_title(socket.assigns.live_action))
      |> assign(:company, Companies.get_company!(id))
      |> assign(:countries, Countries.list_countries())
+     |> assign(:records, Records.list_records_in_company(id))
     }
   end
 

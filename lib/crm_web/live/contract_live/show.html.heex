@@ -22,6 +22,7 @@
 </.list>
 
 <.back navigate={~p"/contracts"}>Back to contracts</.back>
+<.back navigate={~p"/companies"}>Back to companies</.back>
 
 <.modal :if={@live_action == :edit} id="contract-modal" show on_cancel={JS.patch(~p"/contracts/#{@contract}")}>
   <.live_component

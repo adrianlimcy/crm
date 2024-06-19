@@ -10,14 +10,18 @@
 
 <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
   <div class="px-4 py-5 sm:p-6">
-  <%= @company.name %>
-    <.list>
-      <:item title="BRN/UEN"><%= @company.brn %></:item>
-      <:item title="Billingadd1"><%= @company.billingadd1 %></:item>
-      <:item title="Billingadd2"><%= @company.billingadd2 %></:item>
-      <:item title="Postalcode"><%= @company.postalcode %></:item>
-      <:item title="Country"><%= @company.country.name %></:item>
-    </.list>
+    <details>
+        <summary><%= @company.name %></summary>
+        <div>
+            <.list>
+              <:item title="BRN/UEN"><%= @company.brn %></:item>
+              <:item title="Billingadd1"><%= @company.billingadd1 %></:item>
+              <:item title="Billingadd2"><%= @company.billingadd2 %></:item>
+              <:item title="Postalcode"><%= @company.postalcode %></:item>
+              <:item title="Country"><%= @company.country.name %></:item>
+            </.list>
+        </div>
+    </details>
   </div>
 </div>
 <div class="relative">
@@ -34,24 +38,74 @@
 </div>
 <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
   <div class="px-4 py-5 sm:p-6">
-    Contracts
-    <.list>
-      <:item :for={contract <- @company.contracts} title={"Contract #"}>
-        <%= contract.contractno %>
-        <.link navigate={~p"/contracts/#{contract.id}"} class="sm:p-6">
-          <.button>
-            Details
-          </.button>
-        </.link> 
-        <.list>   
-          <:item :for={device <- contract.devices} title={"Devices"}>
-            <%= device.model %>
+    <details>
+      <summary>Contracts</summary>
+      <div>
+        <.list>
+          <:item :for={contract <- @company.contracts} title={"Contract #"}>
+            <details>
+              <summary>
+                <%= contract.contractno %>
+                <.link navigate={~p"/contracts/#{contract.id}"} class="sm:p-6">
+                  <.button>
+                    Details
+                  </.button>
+                </.link> 
+               </summary>
+              <div>       
+                <%= for(device <- contract.devices) do%>
+                  <.list>
+                    <:item title={"Brand"}><%= device.brand %><%= device.model %></:item>
+                    <:item title={"Serial #"}><%= device.serialno %></:item>
+                    <:item title={"Location"}><%= device.currentlocation %></:item>
+                    <:item title={"Details"}>
+                      <.link navigate={~p"/devices/#{device.id}"} class="sm:p-6">
+                        <button type="button" class="rounded-full bg-indigo-600 p-1 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                          </svg>
+                        </button>
+                      </.link> 
+                    </:item>
+                  </.list>
+                <% end %>
+              </div>
+            </details>
+          </:item>      
+       </.list>
+      </div>
+    </details>    
+  </div>
+</div>
+
+<div class="relative">
+  <div class="absolute inset-0 flex items-center" aria-hidden="true">
+    <div class="w-full border-t border-gray-300"></div>
+  </div>
+  <div class="relative flex justify-center">
+    <span class="bg-white px-2 text-gray-500">
+      <svg class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+      </svg>
+    </span>
+  </div>
+</div>
+
+<div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+  <div class="px-4 py-5 sm:p-6">
+    <details>
+      <summary>People</summary>
+      <div>
+        <.list>
+          <:item :for={contact <- @company.contacts} title={"Contacts"}>
+            <%= contact.name %>
           </:item>
         </.list>
-      </:item>      
-    </.list>
+      </div>
+    </details>    
   </div>
 </div>
+
 <div class="relative">
   <div class="absolute inset-0 flex items-center" aria-hidden="true">
     <div class="w-full border-t border-gray-300"></div>
@@ -64,26 +118,32 @@
     </span>
   </div>
 </div>
+
 <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
   <div class="px-4 py-5 sm:p-6">
-    People
-    <.list>
-      <:item :for={contact <- @company.contacts} title={"Contacts"}>
-        <%= contact.name %>
-      </:item>
-    </.list>
+    <details>
+      <summary>Service Records</summary>
+      <div>
+      <.list>
+      <:item :for={record <- @records} title={"Service #"}>
+        <%!-- <%= for(record <- @records) do %> --%>
+        <details>
+        <summary><%= record.svcno %></summary>
+        <div>
+          <.list>
+            <:item title={"Date"}><%= record.svcdate %></:item>
+            <:item title={"Device"}><%= record.device.brand %> <%= record.device.model %></:item>
+            <:item title={"Engineer"}><%= record.engineer.name %></:item>
+          </.list>
+          </div>
+          </details>
+        <%!-- <% end %>      --%>
+        </:item>
+        </.list>
+      </div>
+    </details>    
   </div>
 </div>
-
-
-<%!-- <.list>
-  <:item title="Name"><%= @company.name %></:item>
-  <:item title="BRN/UEN"><%= @company.brn %></:item>
-  <:item title="Billingadd1"><%= @company.billingadd1 %></:item>
-  <:item title="Billingadd2"><%= @company.billingadd2 %></:item>
-  <:item title="Postalcode"><%= @company.postalcode %></:item>
-  <:item title="Country"><%= @company.country.name %></:item>
-</.list> --%>
 
 <.back navigate={~p"/companies"}>Back to companies</.back>
 

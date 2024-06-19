@@ -43,7 +43,7 @@ defmodule CrmWeb.RecordLive.Index do
     |> assign(:record, %Record{})
     |> assign(:contacts, Contacts.list_contacts())
     |> assign(:devices, Devices.list_devices() )
-    |> assign(:engineers, Accounts.list_accounts())
+    |> assign(:engineers, Accounts.list_engineers())
   end
 
   defp apply_action(socket, :index, _params) do

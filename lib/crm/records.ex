@@ -7,6 +7,9 @@ defmodule Crm.Records do
   alias Crm.Repo
 
   alias Crm.Records.Record
+  alias Crm.Contracts.Contract
+  alias Crm.Devices.Device
+  alias Crm.Companies.Company
 
   @doc """
   Returns the list of records.
@@ -20,6 +23,21 @@ defmodule Crm.Records do
   def list_records do
     Repo.all(Record) |> Repo.preload([:device, :contact, :createdby, :engineer])
   end
+
+  def list_records_in_company(id) do
+
+    query = from r in Record,
+    join: d in Device,
+    on: r.device_id == d.id,
+    join: co in Contract,
+    on: d.contract_id == co.id ,
+    join: c in Company,
+    on: co.company_id == c.id,
+    where: c.id == ^id
+
+    Repo.all(query) |> Repo.preload([:device, :engineer])
+  end
+
 
   def paginate_records(params) do
     sortedRecord = from(c in Record, order_by: [desc: c.svcdate])
