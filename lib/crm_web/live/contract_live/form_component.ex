@@ -47,7 +47,7 @@ defmodule CrmWeb.ContractLive.FormComponent do
         <.input field={@form[:svcalloperdevice]} type="number" label="Service allocation per device" />
         <.input field={@form[:timeallo]} type="number" label="Time allocated for entire contract" />
         <.input field={@form[:value]} type="number" label="Value" step="any" />
-        <.input field={@form[:active]} type="checkbox" label="Active" checked />
+        <.input field={@form[:active]} type="checkbox" label="Active"/>
         <.input field={@form[:remarks]} type="textarea" label="Remarks" />
         <:actions>
           <.button phx-disable-with="Saving...">Save Contract</.button>

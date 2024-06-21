@@ -1,9 +1,11 @@
 defmodule CrmWeb.CompanyLive.Show do
+
   use CrmWeb, :live_view
 
   alias Crm.Companies
   alias Crm.Countries
   alias Crm.Records
+  alias Crm.Contracts
 
   @impl true
   def mount(_params, _session, socket) do
@@ -18,6 +20,7 @@ defmodule CrmWeb.CompanyLive.Show do
      |> assign(:company, Companies.get_company!(id))
      |> assign(:countries, Countries.list_countries())
      |> assign(:records, Records.list_records_in_company(id))
+     |> assign(:contracts, Contracts.list_contracts_in_company(id))
     }
   end
 

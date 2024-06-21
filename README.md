@@ -82,3 +82,11 @@ Steps:
 24. added a preload to pagination in records.ex so it will display contact and device models
 25. list only engineers in creating new service records with engineer
 26. made the table conditional in contracts.html.heex to show expiring contracts within the next 90 days
+28. show active and expiring contracts in company show.html.heex only
+  - one by query
+  - one by css in display
+
+
+to do:
+29. only show last 3 years service records in company show.html.heex
+  - by query

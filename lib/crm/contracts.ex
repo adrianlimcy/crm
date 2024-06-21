@@ -5,7 +5,6 @@ defmodule Crm.Contracts do
 
   import Ecto.Query, warn: false
   alias Crm.Repo
-
   alias Crm.Contracts.Contract
 
   @doc """
@@ -19,6 +18,16 @@ defmodule Crm.Contracts do
   """
   def list_contracts do
     Repo.all(Contract) |> Repo.preload([:company])
+  end
+
+  def list_contracts_in_company(id) do
+
+    query = from c in Contract,
+    where: c.company_id == ^id and c.active == true,
+    order_by: [asc: c.enddate]
+
+    Repo.all(query) |> Repo.preload([:devices])
+
   end
 
   def paginate_contracts(params) do

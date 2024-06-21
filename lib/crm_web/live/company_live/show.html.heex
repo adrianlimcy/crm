@@ -42,16 +42,28 @@
       <summary>Contracts</summary>
       <div>
         <.list>
-          <:item :for={contract <- @company.contracts} title={"Contract #"}>
+          <:item :for={contract <- @contracts} title={"Contract #"}>
             <details>
-              <summary>
-                <%= contract.contractno %>
-                <.link navigate={~p"/contracts/#{contract.id}"} class="sm:p-6">
-                  <.button>
-                    Details
-                  </.button>
-                </.link> 
-               </summary>
+              <%= if Date.diff(contract.enddate, Date.utc_today()) <= 90 do%>
+                  <summary class="text-red-500">
+                    <%= contract.contractno %>
+                    <.link navigate={~p"/contracts/#{contract.id}"} class="sm:p-6">
+                      <.button>
+                        Details
+                      </.button>
+                    </.link> 
+                  </summary>
+                <% else %>
+                  <summary>
+                    <%= contract.contractno %>
+                    <.link navigate={~p"/contracts/#{contract.id}"} class="sm:p-6">
+                      <.button>
+                        Details
+                      </.button>
+                    </.link> 
+                  </summary>
+                <% end %>
+                
               <div>       
                 <%= for(device <- contract.devices) do%>
                   <.list>
