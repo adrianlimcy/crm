@@ -12,19 +12,71 @@
   rows={@streams.contracts}
   row_click={fn {_id, contract} -> JS.navigate(~p"/contracts/#{contract}") end}
 >
-  <:col :let={{_id, contract}} label="Contract#"><%= contract.contractno %></:col>
-  <%!-- <:col :let={{_id, contract}} label="DO"><%= contract.do %></:col>
-  <:col :let={{_id, contract}} label="PO"><%= contract.po %></:col>
-  <:col :let={{_id, contract}} label="ITQ"><%= contract.itq %></:col> --%>
-  <:col :let={{_id, contract}} label="Company"><%= contract.company.name %></:col>
-  <:col :let={{_id, contract}} label="Start"><%= contract.startdate %></:col>
-  <:col :let={{_id, contract}} label="End"><%= contract.enddate %></:col>
-  <:col :let={{_id, contract}} label="Type"><%= contract.type %></:col>
-  <%!-- <:col :let={{_id, contract}} label="Allocation(M)"><%= contract.svcalloperdevice %></:col> --%>
-  <%!-- <:col :let={{_id, contract}} label="Allocation(T)"><%= contract.timeallo %></:col> --%>
+
+  <:col :let={{_id, contract}} label="Contract#">
+    <%= if Date.diff(contract.enddate, Date.utc_today()) <= 90 do%>
+    <div class="text-red-500">
+      <%= contract.contractno %>
+    </div>
+    <% else %>
+      <%= contract.contractno %>
+    <% end %> 
+  </:col>
+
+  <:col :let={{_id, contract}} label="To expiry">
+    <%= if Date.diff(contract.enddate, Date.utc_today()) <= 90 do%>
+      <div class="text-red-500">
+        <%= Date.diff(contract.enddate, Date.utc_today()) %> days
+      </div>
+    <% else %>
+      <%= Date.diff(contract.enddate, Date.utc_today()) %> days
+    <% end %>
+  </:col>
+
+  <:col :let={{_id, contract}} label="Company">
+    <%= if Date.diff(contract.enddate, Date.utc_today()) <= 90 do%>
+      <div class="text-red-500">
+        <%= contract.company.name %>
+      </div>
+      <% else %>
+        <%= contract.company.name %>
+      <% end %>   
+  </:col>
+
+  <:col :let={{_id, contract}} label="Start">
+    <%= if Date.diff(contract.enddate, Date.utc_today()) <= 90 do%>
+      <div class="text-red-500">
+        <%= contract.startdate %>
+      </div>
+    <% else %>
+        <%= contract.startdate %>
+    <% end %>  
+  </:col>
+
+  <:col :let={{_id, contract}} label="End">
+    <%= if Date.diff(contract.enddate, Date.utc_today()) <= 90 do%>
+      <div class="text-red-500">
+        <%= contract.enddate %>
+      </div>
+    <% else %>
+      <%= contract.enddate %>
+    <% end %>
+  </:col>
+
+  <:col :let={{_id, contract}} label="Type">
+    <%= if Date.diff(contract.enddate, Date.utc_today()) <= 90 do%>
+      <div class="text-red-500">
+        <%= contract.type %>
+      </div>
+    <% else %>
+      <%= contract.type %>
+    <% end %>  
+  </:col>
+  <%!-- <:col :let={{_id, contract}} label="Allocation(M)"><%= contract.svcalloperdevice %></:col>
+  <:col :let={{_id, contract}} label="Allocation(T)"><%= contract.timeallo %></:col> --%>
   <%!-- <:col :let={{_id, contract}} label="Value"><%= contract.value %></:col>
   <:col :let={{_id, contract}} label="Active"><%= contract.active %></:col> --%>
-   <:col :let={{_id, contract}} label="Remarks"><%= contract.remarks %></:col>
+   <%!-- <:col :let={{_id, contract}} label="Remarks"><%= contract.remarks %></:col> --%>
   <:action :let={{_id, contract}}>
     <div class="sr-only">
       <.link navigate={~p"/contracts/#{contract}"}>Show</.link>

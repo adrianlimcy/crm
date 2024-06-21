@@ -22,7 +22,7 @@ defmodule Crm.Contracts do
   end
 
   def paginate_contracts(params) do
-    sortedContract = from(c in Contract, order_by: [desc: c.contractno])
+    sortedContract = from(c in Contract, order_by: [desc: c.enddate])
     Repo.paginate(sortedContract, params)
   end
 
