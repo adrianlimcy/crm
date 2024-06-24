@@ -85,8 +85,5 @@ Steps:
 28. show active and expiring contracts in company show.html.heex only
   - one by query
   - one by css in display
-
-
-to do:
 29. only show last 3 years service records in company show.html.heex
   - by query

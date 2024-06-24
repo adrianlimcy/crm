@@ -26,6 +26,8 @@ defmodule Crm.Records do
 
   def list_records_in_company(id) do
 
+    date3yearsago = Date.add(Date.utc_today(), -1080)
+
     query = from r in Record,
     join: d in Device,
     on: r.device_id == d.id,
@@ -33,7 +35,7 @@ defmodule Crm.Records do
     on: d.contract_id == co.id ,
     join: c in Company,
     on: co.company_id == c.id,
-    where: c.id == ^id
+    where: c.id == ^id and r.svcdate >= ^date3yearsago
 
     Repo.all(query) |> Repo.preload([:device, :engineer])
   end
